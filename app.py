@@ -10,13 +10,10 @@ from langchain.chains import ConversationalRetrievalChain
 from html_template import css, bot_template, user_template
 
 
-
-load_dotenv()
-
-# Get the API key from the environment variable
-HUGGINGFACEHUB_API_TOKEN = os.getenv('HUGGINGFACEHUB_API_TOKEN')
-VOYAGE_API_KEY = os.getenv('VOYAGE_API_KEY')
-ANTHROPIC_API_KEY = os.getenv('ANTHROPIC_API_KEY')
+# Get the API key from the streamlit secrets
+HUGGINGFACEHUB_API_TOKEN = st.secrets['HUGGINGFACEHUB_API_TOKEN']
+VOYAGE_API_KEY = st.secrets['VOYAGE_API_KEY']
+ANTHROPIC_API_KEY = st.secrets['ANTHROPIC_API_KEY']
 
 # load pdf files and get text
 def get_pdf_text(pdf_path):
